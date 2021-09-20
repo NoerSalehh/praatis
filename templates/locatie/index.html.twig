@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Locatie index{% endblock %}
+
+{% block body %}
+    <h1>Locatie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adres</th>
+                <th>Stad</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locatie in locaties %}
+            <tr>
+                <td>{{ locatie.id }}</td>
+                <td>{{ locatie.Adres }}</td>
+                <td>{{ locatie.Stad }}</td>
+                <td>
+                    <a href="{{ path('locatie_show', {'id': locatie.id}) }}">show</a>
+                    <a href="{{ path('locatie_edit', {'id': locatie.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('locatie_new') }}">Create new</a>
+{% endblock %}

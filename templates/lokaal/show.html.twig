@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lokaal{% endblock %}
+
+{% block body %}
+    <h1>Lokaal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lokaal.id }}</td>
+            </tr>
+            <tr>
+                <th>Adres</th>
+                <td>{{ lokaal.Adres }}</td>
+            </tr>
+            <tr>
+                <th>Stad</th>
+                <td>{{ lokaal.Stad }}</td>
+            </tr>
+            <tr>
+                <th>TotaalToegestanePersonen</th>
+                <td>{{ lokaal.TotaalToegestanePersonen }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('lokaal_index') }}">back to list</a>
+
+    <a href="{{ path('lokaal_edit', {'id': lokaal.id}) }}">edit</a>
+
+    {{ include('lokaal/_delete_form.html.twig') }}
+{% endblock %}

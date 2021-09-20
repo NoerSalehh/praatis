@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lokaal{% endblock %}
+
+{% block body %}
+    <h1>Edit Lokaal</h1>
+
+    {{ include('lokaal/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lokaal_index') }}">back to list</a>
+
+    {{ include('lokaal/_delete_form.html.twig') }}
+{% endblock %}

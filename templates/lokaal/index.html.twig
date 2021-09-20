@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lokaal index{% endblock %}
+
+{% block body %}
+    <h1>Lokaal index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Adres</th>
+                <th>Stad</th>
+                <th>TotaalToegestanePersonen</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lokaal in lokaals %}
+            <tr>
+                <td>{{ lokaal.id }}</td>
+                <td>{{ lokaal.Adres }}</td>
+                <td>{{ lokaal.Stad }}</td>
+                <td>{{ lokaal.TotaalToegestanePersonen }}</td>
+                <td>
+                    <a href="{{ path('lokaal_show', {'id': lokaal.id}) }}">show</a>
+                    <a href="{{ path('lokaal_edit', {'id': lokaal.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lokaal_new') }}">Create new</a>
+{% endblock %}
